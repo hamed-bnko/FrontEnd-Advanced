@@ -7,6 +7,7 @@ var humidity = getElement('humidity');
 var windSpeed = getElement('wind-speed');
 var summary = getElement('summary');
 var image =  getElement("image")
+var Mista = getElement("mista")
 var getWeatherButton = getElement('get-weather-button');
 
 function getGeolocationData() {
@@ -33,9 +34,11 @@ function getWeatherData(long, lat) {
 
 function displayData(data) {
     console.log(data)
+    Mista.innerHTML = data.name
     temperature.innerText = fromFtoC(data.main.temp) + ' C';
     humidity.innerText = data.main.humidity  + '%';
-    windSpeed.innerText = fromMiToKm(data.wind.speed) + 'km/s' ;
+    windSpeed.innerText = fromMiToKm(data.wind.speed) + 'km/h' ;
+    setImage(data.clouds.all)
 }
 
 function fromFtoC(t) {
@@ -46,7 +49,19 @@ function fromMiToKm(s) {
     return s * 1.6;
 }
 function setImage(c){
- image.a
+    if (c >= 0 && c < 30) {
+        image.setAttribute("src" ,"./img/sunny.png")
+    }else if (c > 29 && c < 60) {   
+        image.setAttribute("src" ,"./img/sun&clouds.png")
+    }else {
+        image.setAttribute("src" ,"./img/clouds.png")
+    }
+        
+
+ 
+       
+
+    
 }
 getWeatherButton.addEventListener('click', getGeolocationData);
 
