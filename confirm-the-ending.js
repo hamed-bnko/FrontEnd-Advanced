@@ -12,4 +12,3 @@ function confirmEnding(str, target) {
 
 confirmEnding("Bastian", "an");
 
-console.log(confirmEnding("Bastian", "ad"))

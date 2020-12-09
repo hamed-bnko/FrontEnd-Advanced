@@ -5,14 +5,14 @@ function findLongestWordLength(str) {
 }
 
 function Max(arr){
-  var Str,i,max = arr[0].length;
-  for(i = 0 ; i < arr.length ; i++ ){
+  var Str,i,max = 0;
+  for(i = 0 ; i < arr.length ; i += 1 ){
     if (arr[i].length > max){
-      max = arr[i].length
-      Str = arr[i]
+      max = arr[i].length;
+      Str = arr[i];
     }
   }
-  return max
+  return max;
 }
 
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
